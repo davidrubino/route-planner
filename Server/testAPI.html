@@ -1,0 +1,119 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Test API</title>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script> 
+	<script type="text/javascript">
+	
+		
+		var startField=false;
+		var endField=false;
+		$(function(){
+			$('#addressForm').on('submit',function(){
+				return false;
+			});
+			
+			$(".searchAddress").on('click',function(){
+				var id=$(this).attr('id');
+				if($(this).val().length>0)
+				{
+					$.ajax({ 	type: "POST", 
+								url: "api/getAddress", 
+								data: 'address='+$(this).prev().val(), 
+								dataType:'json',
+								beforeSend: function(){$('body').css('cursor','progress');},
+								complete: function(){$('body').css('cursor','auto');},
+								success: function(res){
+									$('#result').html("");
+									if(typeof(res.address)!='undefined')
+										for(var i=1;i<=res.address[0];i++)
+										{
+											$('<input type="hidden"/>').val(res.address[i].id).appendTo('#result');
+				
+											$('<p style="cursor:pointer;" id="'+id+i+'">'+res.address[i]['label']+'</p>').on('click',function(){
+												$('#'+id).next().val($(this).prev().val());
+												$('#'+id).prev().val($(this).text());
+												$('#'+id).prev().prop('disabled',true);
+											}).on('mouseover',function(){$(this).css('background-color','#DDDDDD');}).on('mouseout',function(){$(this).css('background-color','#FFFFFF');}).appendTo('#result');
+										}
+									if(typeof(res.place)!='undefined')
+										for(var i=1;i<=res.place[0];i++)
+										{
+											$('<input type="hidden"/>').val(res.place[i].id).appendTo('#result');
+											$('<p style="cursor:pointer;" id="'+id+i+'">'+res.place[i]['label']+'</p>').on('click',function(){ // ('+res.place[i]['map']['destinations']+')
+												$('#'+id).next().val($(this).prev().val());
+												$('#'+id).prev().val($(this).text());
+												$('#'+id).prev().prop('disabled',true);
+											}).on('mouseover',function(){$(this).css('background-color','#DDDDDD');}).on('mouseout',function(){$(this).css('background-color','#FFFFFF');}).appendTo('#result');
+										}
+									}
+							});
+				}
+			});
+			
+			$('#searchRoutes').on('click',function(){
+				if($('#start').next().val()!="" && $('#end').next().val()!="")
+				{
+					var json='{"start":'+$('#start').next().val()+',"end":'+$('#end').next().val()+',"year":"2013","month":"11","day":"09","hour":"16","minute":"59","transport":"bus"}';
+					$.ajax({ 	type: "POST", 
+							url: "api/getRoutes", 
+							data: json, 
+							contentType : 'application/json',
+							dataType:'json',
+							beforeSend: function(){$('body').css('cursor','progress');},
+							complete: function(){$('body').css('cursor','auto');},
+							success: function(res){
+								$('#rresult').html("");
+								$('<strong>'+res['route'][0]+' trajet(s)</strong><hr />').appendTo('#rresult');
+								for(var i=1;i<=res['route'][0];i++)
+								{
+									$('<strong>'+res['route'][i]['transportsNb']+' mode de transport dans le trajet</strong><br />').appendTo('#rresult');
+									for(var k=0;k<res['route'][i]['transportsNb'];k++)
+									{
+										$('<p>'+res['route'][i]['transports'][k]['description']+' ('+res['route'][i]['transports'][k]['stepsNb']+' étapes avec ce mode de transport)</p><ul id="l'+i+''+k+'"></ul>').appendTo('#rresult');
+										for(var s=0;s<res['route'][i]['transports'][k]['stepsNb'];s++)
+										{
+											$('<li>'+res['route'][i]['transports'][k]['steps'][s]['action']+'</li>').appendTo('#l'+i+''+k);
+										}
+									}
+									$('<hr />').appendTo('#rresult');
+								}
+							}
+						});
+				}
+				else
+					alert('Le départ et/ou l\'arrivée n\'est pas défini.');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div style="float:left;width:60%;">
+	<form method="post" id="addressForm">
+		<p>
+			
+			<label for="start">Départ : </label><input type="text" class="address" size="75"/>
+			<input type="button" class="searchAddress" id="start" value="chercher"/>
+			<input type="hidden" />
+		</p>
+		<p>
+			<label for="end">Arrivée : </label><input type="text" class="address" size="75"/>
+			<input type="button" class="searchAddress" id="end" value="chercher"/>
+			<input type="hidden" />
+		</p>
+		<p><input type="button" value="Calculer itinéraire" id="searchRoutes"/></p>
+	</form>
+	</div>
+	<div style="float:left;width:40%;">
+		<p id="result">
+		
+		</p>
+	</div>
+	<hr style="clear:both;"/>
+	<p id="rresult">
+		
+	</p>
+</body>
+</html>

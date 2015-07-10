@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MAJ BDD</title>
+	<style>
+	#progress{
+    width: 300px;
+    margin: auto;
+	}
+	progress{
+		display: inline-block;
+		-moz-box-sizing: border-box;
+			 box-sizing: border-box;
+		width: 300px;
+		height: 20px;
+		padding: 3px 3px 2px 3px;
+		background: #333; 
+		background: -webkit-linear-gradient(#2d2d2d,#444);
+		background:    -moz-linear-gradient(#2d2d2d,#444);
+		background:      -o-linear-gradient(#2d2d2d,#444);
+		background:         linear-gradient(#2d2d2d,#444);
+		border: 1px solid rgba(0,0,0,.5);
+		border-radius: 15px;
+		box-shadow: 0 1px 0 rgba(255,255,255,.2);   
+	}
+	</style>
+    <script src="jquery-1.8.0.min.js"></script>
+	<script>
+		$(function(){
+		
+			$('#button').on('click',function(){
+				var tripNb=9223;
+				var start=0;
+				var parallel=10;
+				var delai=100;
+				var count=0;
+				var maxReq = 3;
+				
+				var stopped=false;
+				var go = function(){
+					count++;
+					if(start>=tripNb || count>=maxReq){
+						clearInterval(interval);
+						stopped=true;
+					}
+					
+					if(start+parallel>tripNb){
+						parallel = tripNb-start;
+					}
+					$.get( "fillBDD.php?start="+start+"&parallel="+parallel, function( data ) {
+						$("#value").text(Math.round(start*1000/tripNb)/10+"%");
+						$("#progressBar").attr('value',Math.round(start*1000/tripNb)/10);
+						$( "#result" ).html(data);
+						
+						if(count==1 && stopped){
+							interval = setInterval(go, delai);
+						}
+						console.log(count);
+						count--;
+					});
+					start+=parallel;
+				}
+				
+				var interval = setInterval(go, delai);
+			});
+		});
+	</script>
+  </head>
+  <body>
+	<div id="progress">
+		<input type="button" value="Go" id="button"/>
+		<p>Mise à jour de la base de données... <span id="value" style="font-weight:bold;">0%</span></p>
+		<progress id="progressBar" value="0" min="0" max="100">0%</progress>
+	</div>
+	<div id="result"></div>
+  </body>
+</html>

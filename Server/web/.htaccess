@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^home$ index.php?p=home
+RewriteRule ^api$ index.php?p=api
+RewriteRule ^registration$ index.php?p=registration
+RewriteRule ^download$ index.php?p=download
+RewriteRule ^javadoc$ index.php?p=javadoc

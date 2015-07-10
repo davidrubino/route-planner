@@ -1,0 +1,14 @@
+pcd.telecomnancy
+pcd.telecomnancy.dal
+pcd.telecomnancy.model
+pcd.telecomnancy.model.address
+pcd.telecomnancy.model.bus
+pcd.telecomnancy.model.member
+pcd.telecomnancy.model.routes
+pcd.telecomnancy.serverCommunication
+pcd.telecomnancy.serverCommunication.param
+pcd.telecomnancy.view
+pcd.telecomnancy.view.address
+pcd.telecomnancy.view.bus
+pcd.telecomnancy.view.member
+pcd.telecomnancy.view.routes

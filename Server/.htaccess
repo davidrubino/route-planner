@@ -1,0 +1,12 @@
+php_flag display_errors on 
+Options -Indexes
+RewriteEngine On 
+RewriteRule ^api/(get.*)$ Entry.php?s=api&p=$1
+RewriteRule ^connect$ Entry.php?s=member&p=connect
+RewriteRule ^register$ Entry.php?s=member&p=register
+RewriteRule ^(favorite/(.+))$ Entry.php?s=member&p=$1
+RewriteRule ^(history/(.+))$ Entry.php?s=member&p=$1
+RewriteRule ^api/(bus)$ Entry.php?s=stan&p=$1
+RewriteRule ^api/(bus)/(\d+)$ Entry.php?s=stan&p=$1-route&route_id=$2
+RewriteRule ^api/(bus)/(\d+)/([0-1])$ Entry.php?s=stan&p=$1-route&route_id=$2&direction=$3
+RewriteRule ^api/(bus)/(\d+)/([0-1])/(\d+)$ Entry.php?s=stan&p=$1-stop&route_id=$2&direction=$3&stop_id=$4

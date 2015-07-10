@@ -1,0 +1,5 @@
+DirectoryIndex admin.php
+AuthName "Accès restreint"
+AuthType Basic
+AuthUserFile "/var/www/encrypted.neness.net/telecomnancy/pcd/.htpasswd"
+Require valid-user

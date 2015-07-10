@@ -1,0 +1,69 @@
+<form id="registrationForm">
+
+<fieldset>
+	<legend>Inscription</legend>
+		<p style="margin-bottom:20px;">
+			L'inscription sur ce site vous permet d'utiliser toutes les fonctionnalités de notre logiciel nécessitant un compte telles que l'ajout de favoris, et la gestion de votre historique.
+		</p>
+		<div class="input-group">
+		  <span class="input-group-addon" style="width:120px;">Pseudo</span>
+		  <input class="form-control" type="text" name="login" id="login" required />
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon" style="width:120px;">Mot de passe</span>
+			<input class="form-control" type="password" name="password" id="password" required />
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon" style="width:120px;">E-Mail</span>
+			<input class="form-control" type="text" name="mail" id="mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required />
+			
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon" style="width:120px;">Prénom</span>
+			<input class="form-control" type="text" name="firstName" id="firstName" required />
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon" style="width:120px;">Nom</span>
+			<input class="form-control" type="text" name="name" id="name" required />
+		</div>
+		<div style="margin-top:20px;">
+			<input class="btn btn-default" type="reset" value="Tout effacer" />
+			<input class="btn btn-primary" type="submit" value="S'inscrire" id="registerButton"/>
+		</div>
+	<p id="formError" style="color:red;">
+	</p>
+	<p id="formSuccess" style="color:green;">
+	</p>
+</fieldset>
+</form>
+<script type="text/javascript">
+	$(function() {
+		$("#registerForm").on("submit",function(){
+			var login = $("#login").val();
+			var password = $("#password").val();
+			var mail = $("#mail").val();
+			var firstName = $("#firstName").val();
+			var name = $("#name").val();
+			$.ajax({ 	type: "POST",
+						dataType: "json",
+						url: "http://46.105.18.8/register", 
+						data: "login="+login+"&password="+password+"&mail="+mail+"&firstName="+firstName+"&name="+name,
+						beforeSend: function(){},
+						complete: function(){},
+						success: function(content){
+							$("#formError").text("");
+							$("#formSuccess").text("");
+							if(content.success=="0") {
+								$("#formError").text(content.message);
+								$("#password").val("");
+							}
+							else {
+								$("#formSuccess").text(content.message);
+								$("#registrationForm")[0].reset();
+							}
+						}		
+			});
+			return false;
+		});
+	});
+</script>

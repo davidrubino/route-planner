@@ -1,0 +1,1843 @@
+
+<script type="text/javascript">
+<!--
+$(function(){
+	$("head").append("<link rel='stylesheet' type='text/css' href='//s3.amazonaws.com/mashape-static-production/web/embed/mashape_doc.css' />");
+	$(".mashape-endpoint").on('click',function(){
+		var content = $(this).find('.mashape-endpoint-content:first');
+			$(this).find('.mashape-endpoint-content:first').toggle();
+	});
+	$('#doc-content').fadeIn();
+});
+-->
+</script>
+
+<h2>Documentation de l'API</h2>
+<h5>Générée par <a href="https://www.mashape.com/" target="_blank"/>Mashape</a></h5>
+
+<div id="doc-content" style="display:none;">
+
+<div id="mashape-doc" style="display:none;">
+<!-- address and routes -->
+<div class="mashape-group">
+ <div class="mashape-group-header"></div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">getAddress</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Permet de récupérer une liste d'adresses</p>
+   <div style="height: 560px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /api/getAddress</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">address</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Une adresse complète ou partielle</span>
+       <span class="mashape-parameter-example">Example: TELECOM Nancy</span>
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "address": [
+    "0"
+  ],
+  "place": [
+    "1",
+    {
+      "id": "4",
+      "label": "Université de Lorraine - TELECOM Nancy",
+      "type": 3,
+      "typeStr": "Enseignement supérieur",
+      "lat": 6.1553672,
+      "lon": 48.66878365,
+      "infos": ""
+    }
+  ]
+}</span>
+      
+   </div>
+  </div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">getRoutes</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Permet de récupérer une liste de trajets</p>
+   <div style="height: 718px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /api/getRoutes</span>
+      
+      
+      
+     <div class="mashape-parameter-header">Request Body</div>
+      <span class="mashape-example">{
+  "start": "4",
+  "end": "34",
+  "year": "2013",
+  "month": "12",
+  "day": "14",
+  "hour": "12",
+  "minute": "8",
+  "transport": "Bus"
+}</span>
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "route": [
+    "1",
+    {
+      "id": "0",
+      "start": {
+        "id": "4",
+        "label": "Université de Lorraine - TELECOM Nancy",
+        "type": 3,
+        "typeStr": "Enseignement supérieur",
+        "lat": "6.1553672",
+        "lon": "48.66878365",
+        "infos": ""
+      },
+      "end": {
+        "id": "34",
+        "label": "Place Stanislas, 54000 Nancy, France",
+        "type": 0,
+        "typeStr": "Adresse",
+        "lat": "6.1825438",
+        "lon": "48.693531",
+        "infos": ""
+      },
+      "date": "2013-12-14 12:08",
+      "distance": "6437",
+      "duration": "1937",
+      "transportType": "Bus",
+      "transportsNb": "3",
+      "transports": [
+        {
+          "description": "Parcours piéton : de inconnu rejoindre Rue du Jardin Botanique(3 minutes)",
+          "type": "0",
+          "distance": "362",
+          "duration": "228",
+          "stepsNb": "3",
+          "steps": [
+            {
+              "action": "Marcher",
+              "lat": 48.66876,
+              "lon": 6.1559
+            },
+            {
+              "action": "Tourner à gauche sur Rue du Jardin Botanique après 271m",
+              "lat": 48.66703,
+              "lon": 6.15789
+            },
+            {
+              "action": "Arrivée à Rue du Jardin Botanique après 17m",
+              "lat": 48.66714,
+              "lon": 6.15805
+            }
+          ],
+          "pointsNb": "13",
+          "points": [
+            {
+              "lat": 48.668758392334,
+              "lon": 6.1559000015259
+            },
+            {
+              "lat": 48.668281555176,
+              "lon": 6.1556701660156
+            },
+            {
+              "lat": 48.668281555176,
+              "lon": 6.1556701660156
+            },
+            {
+              "lat": 48.668121337891,
+              "lon": 6.1559500694275
+            },
+            {
+              "lat": 48.668121337891,
+              "lon": 6.1559500694275
+            },
+            {
+              "lat": 48.66775894165,
+              "lon": 6.1566100120544
+            },
+            {
+              "lat": 48.667461395264,
+              "lon": 6.1570601463318
+            },
+            {
+              "lat": 48.667461395264,
+              "lon": 6.1570601463318
+            },
+            {
+              "lat": 48.6672706604,
+              "lon": 6.157350063324
+            },
+            {
+              "lat": 48.667140960693,
+              "lon": 6.1576700210571
+            },
+            {
+              "lat": 48.667030334473,
+              "lon": 6.1578898429871
+            },
+            {
+              "lat": 48.667030334473,
+              "lon": 6.1578898429871
+            },
+            {
+              "lat": 48.667140960693,
+              "lon": 6.1580500602722
+            }
+          ]
+        },
+        {
+          "description": "Parcours en BUS : de UFR STAPS (VILLERS-LES-NANCY) rejoindre PLACE STANISLAS DOM CALMET (NANCY)(23 minutes)",
+          "type": "2",
+          "distance": "5673",
+          "duration": "1380",
+          "stepsNb": "3",
+          "steps": [
+            {
+              "action": "Prendre la ligne 8-VANDOEUVRE CHU - MALZEVILLE Pixerécourt",
+              "lat": 48.667229,
+              "lon": 6.158279
+            },
+            {
+              "action": "Patienter durant le trajet pendant 15 arrêts",
+              "lat": 48.667229,
+              "lon": 6.158279
+            },
+            {
+              "action": "Descendre à PLACE STANISLAS DOM CALMET (NANCY)",
+              "lat": 48.691319,
+              "lon": 6.182261
+            }
+          ],
+          "pointsNb": "16",
+          "points": [
+            {
+              "lat": 48.667229,
+              "lon": 6.158279
+            },
+            {
+              "lat": 48.668274,
+              "lon": 6.160502
+            },
+            {
+              "lat": 48.671169,
+              "lon": 6.160049
+            },
+            {
+              "lat": 48.672752,
+              "lon": 6.163685
+            },
+            {
+              "lat": 48.674713,
+              "lon": 6.170148
+            },
+            {
+              "lat": 48.675438,
+              "lon": 6.171914
+            },
+            {
+              "lat": 48.677624,
+              "lon": 6.170268
+            },
+            {
+              "lat": 48.679619,
+              "lon": 6.167004
+            },
+            {
+              "lat": 48.682247,
+              "lon": 6.166205
+            },
+            {
+              "lat": 48.682648,
+              "lon": 6.169102
+            },
+            {
+              "lat": 48.683395,
+              "lon": 6.172405
+            },
+            {
+              "lat": 48.684521,
+              "lon": 6.178224
+            },
+            {
+              "lat": 48.686226,
+              "lon": 6.181448
+            },
+            {
+              "lat": 48.68751,
+              "lon": 6.18474
+            },
+            {
+              "lat": 48.68967,
+              "lon": 6.18321
+            },
+            {
+              "lat": 48.691319,
+              "lon": 6.182261
+            }
+          ]
+        },
+        {
+          "description": "Parcours piéton : de Cour des Arts rejoindre Place Stanislas(5 minutes)",
+          "type": "0",
+          "distance": "402",
+          "duration": "317",
+          "stepsNb": "5",
+          "steps": [
+            {
+              "action": "Marcher sur Cour des Arts",
+              "lat": 48.69135,
+              "lon": 6.18205
+            },
+            {
+              "action": "Continuer sur Passage des Dominicains après 77m",
+              "lat": 48.6916,
+              "lon": 6.18303
+            },
+            {
+              "action": "Tourner à gauche sur Rue des Dominicains après 50m",
+              "lat": 48.69179,
+              "lon": 6.18364
+            },
+            {
+              "action": "Tourner à gauche sur Place Stanislas après 154m",
+              "lat": 48.69304,
+              "lon": 6.18295
+            },
+            {
+              "action": "Arrivée à Place Stanislas après 44m",
+              "lat": 48.69339,
+              "lon": 6.18267
+            }
+          ],
+          "pointsNb": "14",
+          "points": [
+            {
+              "lat": 48.691349029541,
+              "lon": 6.1820502281189
+            },
+            {
+              "lat": 48.691379547119,
+              "lon": 6.1821799278259
+            },
+            {
+              "lat": 48.691600799561,
+              "lon": 6.183030128479
+            },
+            {
+              "lat": 48.691600799561,
+              "lon": 6.183030128479
+            },
+            {
+              "lat": 48.691791534424,
+              "lon": 6.1836400032043
+            },
+            {
+              "lat": 48.691791534424,
+              "lon": 6.1836400032043
+            },
+            {
+              "lat": 48.692279815674,
+              "lon": 6.1832599639893
+            },
+            {
+              "lat": 48.692501068115,
+              "lon": 6.1831798553467
+            },
+            {
+              "lat": 48.692501068115,
+              "lon": 6.1831798553467
+            },
+            {
+              "lat": 48.693008422852,
+              "lon": 6.1828699111938
+            },
+            {
+              "lat": 48.693008422852,
+              "lon": 6.1828699111938
+            },
+            {
+              "lat": 48.69303894043,
+              "lon": 6.1829500198364
+            },
+            {
+              "lat": 48.69303894043,
+              "lon": 6.1829500198364
+            },
+            {
+              "lat": 48.693389892578,
+              "lon": 6.1826701164246
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</span>
+      
+   </div>
+  </div>
+  
+</div>
+
+<!-- bus -->
+<div class="mashape-group">
+ <div class="mashape-group-header">bus</div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">bus</span>
+   <span class="mashape-endpoint-method mashape-get">GET</span>
+   <p>Permet de récupérer la liste des lignes de bus</p>
+   <div class="mashape-endpoint-content" style="height: 456px;">
+      <span class="mashape-endpoint-route"><span>GET</span> /api/bus</span>
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "linesNb": "32",
+  "lines": [
+    {
+      "infos": {
+        "route_id": "80",
+        "route_short_name": "A",
+        "route_long_name": "Villers Clairlieu - CES Chepfer",
+        "direction_0": " CES Chepfer",
+        "direction_1": "Villers Clairlieu",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "81",
+        "route_short_name": "B",
+        "route_long_name": "Malzeville Le Nid / C.E.S Paul V",
+        "direction_0": "C.E.S Paul V",
+        "direction_1": "Malzeville Le Nid ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "82",
+        "route_short_name": "C",
+        "route_long_name": "Jarville Leon Songeur - Heilleco",
+        "direction_0": " Heilleco",
+        "direction_1": "Jarville Leon Songeur",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "83",
+        "route_short_name": "D",
+        "route_long_name": "L`Oree du Bois / C.E.S Monod",
+        "direction_0": "C.E.S Monod",
+        "direction_1": "L`Oree du Bois ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "84",
+        "route_short_name": "E",
+        "route_long_name": "CES Haut de Penoy / Vandoeuvre B",
+        "direction_0": "Vandoeuvre B",
+        "direction_1": "CES Haut de Penoy ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "85",
+        "route_short_name": "F",
+        "route_long_name": "Saulxures / Lycee Varoquaux",
+        "direction_0": "Lycee Varoquaux",
+        "direction_1": "Saulxures ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "86",
+        "route_short_name": "G",
+        "route_long_name": "Art sur Meurthe / Lycee Varoquau",
+        "direction_0": "Lycee Varoquau",
+        "direction_1": "Art sur Meurthe ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "87",
+        "route_short_name": "H",
+        "route_long_name": "Nancy Centre des Congres / Art s",
+        "direction_0": "Art s",
+        "direction_1": "Nancy Centre des Congres ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "88",
+        "route_short_name": "I",
+        "route_long_name": "Seichamps / C.E.S Nickles",
+        "direction_0": "C.E.S Nickles",
+        "direction_1": "Seichamps ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "89",
+        "route_short_name": "J",
+        "route_long_name": "Nancy Centre des Congres / Malze",
+        "direction_0": "Malze",
+        "direction_1": "Nancy Centre des Congres ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "90",
+        "route_short_name": "K",
+        "route_long_name": "Nancy Centre des Congres / Lycee",
+        "direction_0": "Lycee",
+        "direction_1": "Nancy Centre des Congres ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "94",
+        "route_short_name": "L",
+        "route_long_name": "Villers Lycee Stanislas / Ludres",
+        "direction_0": "Ludres",
+        "direction_1": "Villers Lycee Stanislas ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "95",
+        "route_short_name": "M",
+        "route_long_name": "Villers Lycee Stanislas / Flevil",
+        "direction_0": "Flevil",
+        "direction_1": "Villers Lycee Stanislas ",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "101",
+        "route_short_name": "1",
+        "route_long_name": "VANDOEUVRE CHU Brabois - ESSEY Mouzimpré",
+        "direction_0": " ESSEY Mouzimpré",
+        "direction_1": "VANDOEUVRE CHU Brabois",
+        "route_type": "0"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "102",
+        "route_short_name": "2",
+        "route_long_name": "LAXOU Plateau de Haye - LANEUVEVILLE Centre",
+        "direction_0": " LANEUVEVILLE Centre",
+        "direction_1": "LAXOU Plateau de Haye",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "103",
+        "route_short_name": "3",
+        "route_long_name": "LAXOU Provinces - SEICHAMPS",
+        "direction_0": " SEICHAMPS",
+        "direction_1": "LAXOU Provinces",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "104",
+        "route_short_name": "4",
+        "route_long_name": "LAXOU Champ-le-Boeuf - VANDOEUVRE Roberval",
+        "direction_0": " VANDOEUVRE Roberval",
+        "direction_1": "LAXOU Champ-le-Boeuf",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "105",
+        "route_short_name": "5",
+        "route_long_name": "LAXOU Champ-le-Boeuf - SEICHAMPS Voirincourt",
+        "direction_0": " SEICHAMPS Voirincourt",
+        "direction_1": "LAXOU Champ-le-Boeuf",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "106",
+        "route_short_name": "6",
+        "route_long_name": "VILLERS Clairlieu - MALZEVILLE Savlons",
+        "direction_0": " MALZEVILLE Savlons",
+        "direction_1": "VILLERS Clairlieu",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "107",
+        "route_short_name": "7",
+        "route_long_name": "DOMMARTEMONT - HOUDEMONT Porte Sud",
+        "direction_0": " HOUDEMONT Porte Sud",
+        "direction_1": "DOMMARTEMONT",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "108",
+        "route_short_name": "8",
+        "route_long_name": "VANDOEUVRE CHU - MALZEVILLE Pixerécourt",
+        "direction_0": " MALZEVILLE Pixerécourt",
+        "direction_1": "VANDOEUVRE CHU",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "109",
+        "route_short_name": "9",
+        "route_long_name": "SAULXURES - NANCY Tamaris",
+        "direction_0": " NANCY Tamaris",
+        "direction_1": "SAULXURES",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "110",
+        "route_short_name": "10",
+        "route_long_name": "NANCY Pôle de Santé - VANDOEUVRE Roberval",
+        "direction_0": " VANDOEUVRE Roberval",
+        "direction_1": "NANCY Pôle de Santé",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "111",
+        "route_short_name": "11",
+        "route_long_name": "NANCY Centre de Congrès Prouvé - FLEVILLE de la Noue / LUDRES Dynapôle",
+        "direction_0": " FLEVILLE de la Noue ",
+        "direction_1": "NANCY Centre de Congrès Prouvé",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "112",
+        "route_short_name": "12",
+        "route_long_name": "NANCY Centre de Congrès Prouvé - HEILLECOURT",
+        "direction_0": " HEILLECOURT",
+        "direction_1": "NANCY Centre de Congrès Prouvé",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "113",
+        "route_short_name": "13",
+        "route_long_name": "NANCY Centre de Congrès Prouvé - ART-SUR-MEURTHE",
+        "direction_0": " ART-SUR-MEURTHE",
+        "direction_1": "NANCY Centre de Congrès Prouvé",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "114",
+        "route_short_name": "14",
+        "route_long_name": "NANCY Centre de Congrès Prouvé - LUDRES (par Dynapôle)",
+        "direction_0": " LUDRES (par Dynapôle)",
+        "direction_1": "NANCY Centre de Congrès Prouvé",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "115",
+        "route_short_name": "15",
+        "route_long_name": "VILLERS Lycée Stanislas - LANEUVEVILLE Gare",
+        "direction_0": " LANEUVEVILLE Gare",
+        "direction_1": "VILLERS Lycée Stanislas",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "201",
+        "route_short_name": "MsE",
+        "route_long_name": "Mobistan Est - Gérard Barrois - Stade Marcel Picot / Essey Emile Gallé",
+        "direction_0": " Gérard Barrois",
+        "direction_1": "Mobistan Est",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "205",
+        "route_short_name": "MsO",
+        "route_long_name": "Mobistan Ouest - Vandoeuvre Faculté de Médecine / Vandoeuvre Remich",
+        "direction_0": " Vandoeuvre Faculté de Médecine ",
+        "direction_1": "Mobistan Ouest",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "207",
+        "route_short_name": "psL",
+        "route_long_name": "P'titstan LAXOU Sapinière - LAXOU Provinces / CPN",
+        "direction_0": " LAXOU Provinces ",
+        "direction_1": "P'titstan LAXOU Sapinière",
+        "route_type": "3"
+      }
+    },
+    {
+      "infos": {
+        "route_id": "208",
+        "route_short_name": "psMN",
+        "route_long_name": "P'titstan MAXEVILLE Mairie - NANCY Division de Fer",
+        "direction_0": " NANCY Division de Fer",
+        "direction_1": "P'titstan MAXEVILLE Mairie",
+        "route_type": "3"
+      }
+    }
+  ]
+}</span>
+      
+   </div>
+  </div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">bus line</span>
+   <span class="mashape-endpoint-method mashape-get">GET</span>
+   <p>Permet de récupérer la description d'une ligne de bus</p>
+   <div class="mashape-endpoint-content" style="height: 412x;">
+      <span class="mashape-endpoint-route"><span>GET</span> /api/bus/{line_id}</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">line_id</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">L'ID de la ligne de bus</span>
+       <span class="mashape-parameter-example">Example: 101</span>
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "infos": {
+    "route_id": "101",
+    "route_short_name": "1",
+    "route_long_name": "VANDOEUVRE CHU Brabois - ESSEY Mouzimpré",
+    "direction_0": " ESSEY Mouzimpré",
+    "direction_1": "VANDOEUVRE CHU Brabois",
+    "route_type": "0"
+  }
+}</span>
+      
+   </div>
+  </div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">bus line and stops</span>
+   <span class="mashape-endpoint-method mashape-get">GET</span>
+   <p>Permet de récupérer la description d'une ligne de bus et ses arrêts dans une direction donnée</p>
+   <div class="mashape-endpoint-content" style="height: 650px;">
+      <span class="mashape-endpoint-route"><span>GET</span> /api/bus/{line_id}/{direction}</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">line_id</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">L'ID de la ligne de bus</span>
+       <span class="mashape-parameter-example">Example: 101</span>
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">direction</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">La direction de la ligne : 0 ou 1</span>
+       <span class="mashape-parameter-example">Example: 0</span>
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "infos": {
+    "route_id": "101",
+    "route_short_name": "1",
+    "route_long_name": "VANDOEUVRE CHU Brabois - ESSEY Mouzimpré",
+    "direction_0": " ESSEY Mouzimpré",
+    "direction_1": "VANDOEUVRE CHU Brabois",
+    "route_type": "0"
+  },
+  "stopsNb": "27",
+  "stops": [
+    {
+      "infos": {
+        "stop_id": "1",
+        "stop_code": "1",
+        "stop_name": "VANDOEUVRE CHU BRABOIS (VANDOEUVRE-LES-NANCY)",
+        "stop_lat": "48.64917",
+        "stop_lon": "6.14568"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "2",
+        "stop_code": "2",
+        "stop_name": "FORET DE HAYE (VANDOEUVRE-LES-NANCY)",
+        "stop_lat": "48.650967",
+        "stop_lon": "6.149153"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "3",
+        "stop_code": "3",
+        "stop_name": "FAISANDERIE (VANDOEUVRE-LES-NANCY)",
+        "stop_lat": "48.654213",
+        "stop_lon": "6.152813"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "5",
+        "stop_code": "5",
+        "stop_name": "SAINT ANDRE (VANDOEUVRE-LES-NANCY)",
+        "stop_lat": "48.66032",
+        "stop_lon": "6.159592"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "6",
+        "stop_code": "6",
+        "stop_name": "LE RECLUS (VANDOEUVRE-LES-NANCY)",
+        "stop_lat": "48.662556",
+        "stop_lon": "6.162038"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "7",
+        "stop_code": "7",
+        "stop_name": "CALLOT (VANDOEUVRE-LES-NANCY)",
+        "stop_lat": "48.666126",
+        "stop_lon": "6.16601"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "8",
+        "stop_code": "8",
+        "stop_name": "VELODROME (VANDOEUVRE-LES-NANCY)",
+        "stop_lat": "48.667004",
+        "stop_lon": "6.166646"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "9",
+        "stop_code": "9",
+        "stop_name": "MONTET OCTROI (NANCY)",
+        "stop_lat": "48.668476",
+        "stop_lon": "6.168737"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "10",
+        "stop_code": "10",
+        "stop_name": "BLANDAN (NANCY)",
+        "stop_lat": "48.672028",
+        "stop_lon": "6.172736"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "11",
+        "stop_code": "11",
+        "stop_name": "EXELMANS (NANCY)",
+        "stop_lat": "48.674858",
+        "stop_lon": "6.175893"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "12",
+        "stop_code": "12",
+        "stop_name": "JEAN JAURES (NANCY)",
+        "stop_lat": "48.678394",
+        "stop_lon": "6.17981"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "13",
+        "stop_code": "13",
+        "stop_name": "GARENNE (NANCY)",
+        "stop_lat": "48.681313",
+        "stop_lon": "6.178612"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "14",
+        "stop_code": "14",
+        "stop_name": "MON DESERT (NANCY)",
+        "stop_lat": "48.684566",
+        "stop_lon": "6.176501"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "15",
+        "stop_code": "15",
+        "stop_name": "KENNEDY (NANCY)",
+        "stop_lat": "48.686562",
+        "stop_lon": "6.174976"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "16",
+        "stop_code": "16",
+        "stop_name": "NANCY GARE (NANCY)",
+        "stop_lat": "48.689137",
+        "stop_lon": "6.175507"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "17",
+        "stop_code": "17",
+        "stop_name": "MAGINOT (NANCY)",
+        "stop_lat": "48.689247",
+        "stop_lon": "6.177907"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "18",
+        "stop_code": "18",
+        "stop_name": "POINT CENTRAL (NANCY)",
+        "stop_lat": "48.690556",
+        "stop_lon": "6.181973"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "19",
+        "stop_code": "19",
+        "stop_name": "CATHEDRALE (NANCY)",
+        "stop_lat": "48.691662",
+        "stop_lon": "6.185575"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "20",
+        "stop_code": "20",
+        "stop_name": "DIVISION DE FER (NANCY)",
+        "stop_lat": "48.69318",
+        "stop_lon": "6.190622"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "21",
+        "stop_code": "21",
+        "stop_name": "SAINT GEORGES (NANCY)",
+        "stop_lat": "48.69561",
+        "stop_lon": "6.195424"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "22",
+        "stop_code": "22",
+        "stop_name": "CRISTALLERIES (NANCY)",
+        "stop_lat": "48.697388",
+        "stop_lon": "6.198792"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "23",
+        "stop_code": "23",
+        "stop_name": "GERARD BARROIS STADE MARCEL PICOT (SAINT-MAX)",
+        "stop_lat": "48.69968",
+        "stop_lon": "6.204713"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "24",
+        "stop_code": "24",
+        "stop_name": "SAINT LIVIER (SAINT-MAX)",
+        "stop_lat": "48.700832",
+        "stop_lon": "6.208877"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "25",
+        "stop_code": "25",
+        "stop_name": "WASHINGTON FOCH (SAINT-MAX)",
+        "stop_lat": "48.702129",
+        "stop_lon": "6.213515"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "26",
+        "stop_code": "26",
+        "stop_name": "CLINIQUE PASTEUR (ESSEY-LES-NANCY)",
+        "stop_lat": "48.703056",
+        "stop_lon": "6.216793"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "27",
+        "stop_code": "27",
+        "stop_name": "ESSEY ROOSEVELT (ESSEY-LES-NANCY)",
+        "stop_lat": "48.704327",
+        "stop_lon": "6.221209"
+      }
+    },
+    {
+      "infos": {
+        "stop_id": "28",
+        "stop_code": "28",
+        "stop_name": "ESSEY MOUZIMPRE (ESSEY-LES-NANCY)",
+        "stop_lat": "48.701271",
+        "stop_lon": "6.224871"
+      }
+    }
+  ]
+}</span>
+      
+   </div>
+  </div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">bus stop</span>
+   <span class="mashape-endpoint-method mashape-get">GET</span>
+   <p>Permet de récupérer la description et les horaires d'un arrêt d'une ligne de bus dans une direction donnée</p>
+   <div class="mashape-endpoint-content" style="height: 700px;">
+      <span class="mashape-endpoint-route"><span>GET</span> /api/bus/{line_id}/{direction}/{stop_id}</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">line_id</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">L'ID de la ligne de bus</span>
+       <span class="mashape-parameter-example">Example: 101</span>
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">direction</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">La direction de la ligne : 0 ou 1</span>
+       <span class="mashape-parameter-example">Example: 0</span>
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">stop_id</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">L'ID de l'arrêt de bus</span>
+       <span class="mashape-parameter-example">Example: 1</span>
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "infos": {
+    "stop_id": "1",
+    "stop_code": "1",
+    "stop_name": "VANDOEUVRE CHU BRABOIS (VANDOEUVRE-LES-NANCY)",
+    "stop_lat": "48.64917",
+    "stop_lon": "6.14568"
+  },
+  "timesNb": "209",
+  "times": [
+    "05:00",
+    "05:15",
+    "05:30",
+    "05:45",
+    "06:00",
+    "06:02",
+    "06:13",
+    "06:15",
+    "06:28",
+    "06:30",
+    "06:35",
+    "06:40",
+    "06:45",
+    "06:50",
+    "06:55",
+    "07:00",
+    "07:05",
+    "07:10",
+    "07:15",
+    "07:20",
+    "07:25",
+    "07:30",
+    "07:35",
+    "07:40",
+    "07:45",
+    "07:50",
+    "07:55",
+    "08:00",
+    "08:05",
+    "08:10",
+    "08:15",
+    "08:20",
+    "08:25",
+    "08:30",
+    "08:35",
+    "08:40",
+    "08:45",
+    "08:50",
+    "08:55",
+    "09:00",
+    "09:05",
+    "09:10",
+    "09:15",
+    "09:20",
+    "09:25",
+    "09:30",
+    "09:35",
+    "09:40",
+    "09:45",
+    "09:50",
+    "09:55",
+    "10:00",
+    "10:05",
+    "10:10",
+    "10:15",
+    "10:20",
+    "10:25",
+    "10:30",
+    "10:35",
+    "10:40",
+    "10:45",
+    "10:50",
+    "10:55",
+    "11:00",
+    "11:05",
+    "11:10",
+    "11:15",
+    "11:20",
+    "11:25",
+    "11:30",
+    "11:35",
+    "11:40",
+    "11:45",
+    "11:50",
+    "11:55",
+    "12:00",
+    "12:05",
+    "12:10",
+    "12:15",
+    "12:20",
+    "12:25",
+    "12:30",
+    "12:35",
+    "12:40",
+    "12:45",
+    "12:50",
+    "12:55",
+    "13:00",
+    "13:05",
+    "13:10",
+    "13:15",
+    "13:20",
+    "13:25",
+    "13:30",
+    "13:35",
+    "13:40",
+    "13:45",
+    "13:50",
+    "13:55",
+    "14:00",
+    "14:05",
+    "14:10",
+    "14:15",
+    "14:20",
+    "14:25",
+    "14:30",
+    "14:35",
+    "14:40",
+    "14:45",
+    "14:50",
+    "14:55",
+    "15:00",
+    "15:05",
+    "15:10",
+    "15:15",
+    "15:20",
+    "15:25",
+    "15:30",
+    "15:35",
+    "15:40",
+    "15:45",
+    "15:50",
+    "15:55",
+    "16:00",
+    "16:05",
+    "16:10",
+    "16:15",
+    "16:20",
+    "16:25",
+    "16:30",
+    "16:35",
+    "16:40",
+    "16:45",
+    "16:50",
+    "16:55",
+    "17:00",
+    "17:05",
+    "17:10",
+    "17:15",
+    "17:20",
+    "17:25",
+    "17:30",
+    "17:35",
+    "17:40",
+    "17:45",
+    "17:50",
+    "17:55",
+    "18:00",
+    "18:05",
+    "18:10",
+    "18:15",
+    "18:20",
+    "18:25",
+    "18:30",
+    "18:35",
+    "18:40",
+    "18:45",
+    "18:50",
+    "18:55",
+    "19:00",
+    "19:05",
+    "19:10",
+    "19:15",
+    "19:20",
+    "19:25",
+    "19:30",
+    "19:35",
+    "19:40",
+    "19:44",
+    "19:45",
+    "19:50",
+    "19:55",
+    "20:00",
+    "20:05",
+    "20:10",
+    "20:15",
+    "20:20",
+    "20:25",
+    "20:30",
+    "20:35",
+    "20:40",
+    "20:45",
+    "20:50",
+    "20:55",
+    "21:00",
+    "21:05",
+    "21:10",
+    "21:15",
+    "21:20",
+    "21:25",
+    "21:30",
+    "21:45",
+    "21:50",
+    "22:00",
+    "22:10",
+    "22:15",
+    "22:30",
+    "22:45",
+    "22:50",
+    "23:00",
+    "23:10",
+    "23:15",
+    "23:30",
+    "24:00",
+    "24:30",
+    "25:00",
+    "25:30",
+    "26:00",
+    "26:30"
+  ]
+}</span>
+      
+   </div>
+  </div>
+</div>
+  
+  
+  
+<!-- favorite -->
+<div class="mashape-group">
+ <div class="mashape-group-header">favorite</div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">favorite : add</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Ajoute un favoris (nécessite d'être connecté et d'envoyer le PHPSESSID en header)</p>
+   <div style="height: 390px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /favorite/add</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">start_id</span>
+       <span class="mashape-parameter-type">number</span><span class="mashape-parameter-description">L'ID de l'adresse de départ retourné par l'API (getAddress)</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">end_id</span>
+       <span class="mashape-parameter-type">number</span><span class="mashape-parameter-description">L'ID de l'adresse d'arrivée retourné par l'API (getAddress)</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">transportType</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Le type de transport : Bus, Voiture, A pied</span>
+       
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "success": "1",
+  "message": "message de succès"
+}</span>
+      
+   </div>
+  </div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">favorite : calculate</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Calcule un trajet favoris (nécessite d'être connecté et d'envoyer le PHPSESSID en header)</p>
+   <div style="height: 719px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /favorite/calculate</span>
+      
+      
+      
+     <div class="mashape-parameter-header">Request Body</div>
+      <span class="mashape-example">{
+  "start": "4",
+  "end": "34",
+  "year": "2013",
+  "month": "12",
+  "day": "14",
+  "hour": "12",
+  "minute": "8",
+  "transport": "Bus"
+}</span>
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "route": [
+    "1",
+    {
+      "id": "0",
+      "start": {
+        "id": "4",
+        "label": "Université de Lorraine - TELECOM Nancy",
+        "type": 3,
+        "typeStr": "Enseignement supérieur",
+        "lat": "6.1553672",
+        "lon": "48.66878365",
+        "infos": ""
+      },
+      "end": {
+        "id": "34",
+        "label": "Place Stanislas, 54000 Nancy, France",
+        "type": 0,
+        "typeStr": "Adresse",
+        "lat": "6.1825438",
+        "lon": "48.693531",
+        "infos": ""
+      },
+      "date": "2013-12-14 12:08",
+      "distance": "6437",
+      "duration": "1937",
+      "transportType": "Bus",
+      "transportsNb": "3",
+      "transports": [
+        {
+          "description": "Parcours piéton : de inconnu rejoindre Rue du Jardin Botanique(3 minutes)",
+          "type": "0",
+          "distance": "362",
+          "duration": "228",
+          "stepsNb": "3",
+          "steps": [
+            {
+              "action": "Marcher",
+              "lat": 48.66876,
+              "lon": 6.1559
+            },
+            {
+              "action": "Tourner à gauche sur Rue du Jardin Botanique après 271m",
+              "lat": 48.66703,
+              "lon": 6.15789
+            },
+            {
+              "action": "Arrivée à Rue du Jardin Botanique après 17m",
+              "lat": 48.66714,
+              "lon": 6.15805
+            }
+          ],
+          "pointsNb": "13",
+          "points": [
+            {
+              "lat": 48.668758392334,
+              "lon": 6.1559000015259
+            },
+            {
+              "lat": 48.668281555176,
+              "lon": 6.1556701660156
+            },
+            {
+              "lat": 48.668281555176,
+              "lon": 6.1556701660156
+            },
+            {
+              "lat": 48.668121337891,
+              "lon": 6.1559500694275
+            },
+            {
+              "lat": 48.668121337891,
+              "lon": 6.1559500694275
+            },
+            {
+              "lat": 48.66775894165,
+              "lon": 6.1566100120544
+            },
+            {
+              "lat": 48.667461395264,
+              "lon": 6.1570601463318
+            },
+            {
+              "lat": 48.667461395264,
+              "lon": 6.1570601463318
+            },
+            {
+              "lat": 48.6672706604,
+              "lon": 6.157350063324
+            },
+            {
+              "lat": 48.667140960693,
+              "lon": 6.1576700210571
+            },
+            {
+              "lat": 48.667030334473,
+              "lon": 6.1578898429871
+            },
+            {
+              "lat": 48.667030334473,
+              "lon": 6.1578898429871
+            },
+            {
+              "lat": 48.667140960693,
+              "lon": 6.1580500602722
+            }
+          ]
+        },
+        {
+          "description": "Parcours en BUS : de UFR STAPS (VILLERS-LES-NANCY) rejoindre PLACE STANISLAS DOM CALMET (NANCY)(23 minutes)",
+          "type": "2",
+          "distance": "5673",
+          "duration": "1380",
+          "stepsNb": "3",
+          "steps": [
+            {
+              "action": "Prendre la ligne 8-VANDOEUVRE CHU - MALZEVILLE Pixerécourt",
+              "lat": 48.667229,
+              "lon": 6.158279
+            },
+            {
+              "action": "Patienter durant le trajet pendant 15 arrêts",
+              "lat": 48.667229,
+              "lon": 6.158279
+            },
+            {
+              "action": "Descendre à PLACE STANISLAS DOM CALMET (NANCY)",
+              "lat": 48.691319,
+              "lon": 6.182261
+            }
+          ],
+          "pointsNb": "16",
+          "points": [
+            {
+              "lat": 48.667229,
+              "lon": 6.158279
+            },
+            {
+              "lat": 48.668274,
+              "lon": 6.160502
+            },
+            {
+              "lat": 48.671169,
+              "lon": 6.160049
+            },
+            {
+              "lat": 48.672752,
+              "lon": 6.163685
+            },
+            {
+              "lat": 48.674713,
+              "lon": 6.170148
+            },
+            {
+              "lat": 48.675438,
+              "lon": 6.171914
+            },
+            {
+              "lat": 48.677624,
+              "lon": 6.170268
+            },
+            {
+              "lat": 48.679619,
+              "lon": 6.167004
+            },
+            {
+              "lat": 48.682247,
+              "lon": 6.166205
+            },
+            {
+              "lat": 48.682648,
+              "lon": 6.169102
+            },
+            {
+              "lat": 48.683395,
+              "lon": 6.172405
+            },
+            {
+              "lat": 48.684521,
+              "lon": 6.178224
+            },
+            {
+              "lat": 48.686226,
+              "lon": 6.181448
+            },
+            {
+              "lat": 48.68751,
+              "lon": 6.18474
+            },
+            {
+              "lat": 48.68967,
+              "lon": 6.18321
+            },
+            {
+              "lat": 48.691319,
+              "lon": 6.182261
+            }
+          ]
+        },
+        {
+          "description": "Parcours piéton : de Cour des Arts rejoindre Place Stanislas(5 minutes)",
+          "type": "0",
+          "distance": "402",
+          "duration": "317",
+          "stepsNb": "5",
+          "steps": [
+            {
+              "action": "Marcher sur Cour des Arts",
+              "lat": 48.69135,
+              "lon": 6.18205
+            },
+            {
+              "action": "Continuer sur Passage des Dominicains après 77m",
+              "lat": 48.6916,
+              "lon": 6.18303
+            },
+            {
+              "action": "Tourner à gauche sur Rue des Dominicains après 50m",
+              "lat": 48.69179,
+              "lon": 6.18364
+            },
+            {
+              "action": "Tourner à gauche sur Place Stanislas après 154m",
+              "lat": 48.69304,
+              "lon": 6.18295
+            },
+            {
+              "action": "Arrivée à Place Stanislas après 44m",
+              "lat": 48.69339,
+              "lon": 6.18267
+            }
+          ],
+          "pointsNb": "14",
+          "points": [
+            {
+              "lat": 48.691349029541,
+              "lon": 6.1820502281189
+            },
+            {
+              "lat": 48.691379547119,
+              "lon": 6.1821799278259
+            },
+            {
+              "lat": 48.691600799561,
+              "lon": 6.183030128479
+            },
+            {
+              "lat": 48.691600799561,
+              "lon": 6.183030128479
+            },
+            {
+              "lat": 48.691791534424,
+              "lon": 6.1836400032043
+            },
+            {
+              "lat": 48.691791534424,
+              "lon": 6.1836400032043
+            },
+            {
+              "lat": 48.692279815674,
+              "lon": 6.1832599639893
+            },
+            {
+              "lat": 48.692501068115,
+              "lon": 6.1831798553467
+            },
+            {
+              "lat": 48.692501068115,
+              "lon": 6.1831798553467
+            },
+            {
+              "lat": 48.693008422852,
+              "lon": 6.1828699111938
+            },
+            {
+              "lat": 48.693008422852,
+              "lon": 6.1828699111938
+            },
+            {
+              "lat": 48.69303894043,
+              "lon": 6.1829500198364
+            },
+            {
+              "lat": 48.69303894043,
+              "lon": 6.1829500198364
+            },
+            {
+              "lat": 48.693389892578,
+              "lon": 6.1826701164246
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</span>
+      
+   </div>
+  </div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">favorite : delete</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Supprime un favoris (nécessite d'être connecté et d'envoyer le PHPSESSID en header)</p>
+   <div style="height: 390px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /favorite/delete</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">start_id</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">L'ID de l'adresse de départ retournée par l'API</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">end_id</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">L'ID de l'adresse d'arrivée retournée par l'API</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">transportType</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Le type de transport : Bus, Voiture, A pied</span>
+       
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "success": "1",
+  "message": "message de succès"
+}</span>
+      
+   </div>
+  </div>
+  
+</div>
+<!-- history -->
+<div class="mashape-group">
+ <div class="mashape-group-header">history</div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">history : add</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Ajoute un historique (nécessite d'être connecté et d'envoyer le PHPSESSID en header)</p>
+   <div style="height: 282px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /history/add</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">route_id</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">L'ID du trajet retourné par l'API (getRoutes)</span>
+       
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "success": "1",
+  "message": "message de succès"
+}</span>
+      
+   </div>
+  </div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">history : clear</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Vide l'historique (nécessite d'être connecté et d'envoyer le PHPSESSID en header)</p>
+   <div style="height: 203px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /history/clear</span>
+      
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "success": "1",
+  "message": "message de succès"
+}</span>
+      
+   </div>
+  </div>
+  
+</div>
+<!-- member -->
+<div class="mashape-group">
+ <div class="mashape-group-header">member</div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">connect</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Permet de se connecter</p>
+   <div style="height: 456px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /connect</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">login</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Le pseudo</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">password</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Le mot de passe</span>
+       
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "success": "1",
+  "member": {
+    "login": "Anthony",
+    "fnb": "0",
+    "hnb": "0",
+    "favorites": [],
+    "history": []
+  }
+}</span>
+      
+   </div>
+  </div>
+  
+  <div class="mashape-endpoint">
+    <span class="mashape-endpoint-name">register</span>
+   <span class="mashape-endpoint-method mashape-post">POST</span>
+   <p>Permet de s'inscrire</p>
+   <div style="height: 498px;" class="mashape-endpoint-content">
+      <span class="mashape-endpoint-route"><span>POST</span> /register</span>
+      <div class="mashape-parameter-header">Parameters</div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">login</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Le pseudo</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">password</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Le mot de passe</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">mail</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">L'adresse email</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">name</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Le nom</span>
+       
+     </div>
+      
+      <div class="mashape-parameter">
+       <span class="mashape-parameter-name">firstName</span>
+       <span class="mashape-parameter-type">string</span><span class="mashape-parameter-description">Le prénom</span>
+       
+     </div>
+      
+      
+      
+     <div class="mashape-response-header">Response Example</div>
+     <span class="mashape-example">{
+  "success": "1",
+  "message": "message de succès"
+}</span>
+      
+   </div>
+  </div>
+  
+</div>
+</div>
+</div>
